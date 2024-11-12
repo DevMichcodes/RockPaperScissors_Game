@@ -19,7 +19,7 @@ function getPlayerChoice(){
     return player_choice;
 }
 //console.log(getComputerChoice(),getPlayerChoice());
-/*
+
 // playing a round
 function playRound(){
     let computer_choice = getComputerChoice().toLowerCase();
@@ -47,7 +47,7 @@ function playRound(){
     
 
 }
-
+/*
 //console.log(getPlayerChoice(), getComputerChoice());// get choices
 
 
