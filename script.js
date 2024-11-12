@@ -47,10 +47,8 @@ function playRound(){
     
 
 }
-/*
+
 //console.log(getPlayerChoice(), getComputerChoice());// get choices
-
-
 
 //for game over
 function gameOver(){
