@@ -8,7 +8,7 @@ function getComputerChoice(){
     let computer_choice = ["Rock","Paper","Scissors"];
         return computer_choice[Math.floor(Math.random ()*3)];
 }
-/*
+
 //console.log(getComputerChoice());
 // playing a single round
 let player_choice ="";
@@ -19,7 +19,7 @@ function getPlayerChoice(){
     return player_choice;
 }
 //console.log(getComputerChoice(),getPlayerChoice());
-
+/*
 // playing a round
 function playRound(){
     let computer_choice = getComputerChoice().toLowerCase();
