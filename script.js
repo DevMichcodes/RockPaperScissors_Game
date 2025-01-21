@@ -12,7 +12,7 @@ function getComputerChoice(){
 //console.log(getComputerChoice());
 // playing a single round
 let player_choice ="";
-const choices =["rock","paper","scissors"];
+const choices =["rock","paper","scissors","quit"];
 
 function getPlayerChoice(){
     player_choice = prompt("Enter your choice:").toLowerCase();
@@ -61,15 +61,16 @@ function gameOver(){
     }
     
 }
-const allRounds = 5;
 
-for ( rounds = 0; rounds <= allRounds; rounds ++){
-    console.log (`Rounds = ${rounds}`);
-    getPlayerChoice();
-    let result = playRound();
+while(true){
+    let player_choice = getPlayerChoice();
+    if(player_choice == "quit"){
+    break;
+    }
+
+    let computer_choice = getComputerChoice();
+    let result = playRound(player_choice,computer_choice);
     console.log(result);
-   console.log(`Player score: ${player_score} Computer score: ${computer_score}`);
-
+    console.log(`player score:${player_score} computer score: ${computer_score}`);
 }
 console.log(gameOver());
-
