@@ -15,8 +15,11 @@ let player_choice ="";
 const choices =["rock","paper","scissors","quit"];
 
 function getPlayerChoice(){
-    player_choice = prompt("Enter your choice:").toLowerCase();
-    return player_choice;
+    player_choice = prompt("Enter your choice:");
+    if (player_choice == null){
+        return "quit";
+    }
+    return player_choice.toLowerCase();
 }
 //console.log(getComputerChoice(),getPlayerChoice());
 
@@ -54,7 +57,11 @@ function playRound(){
 function gameOver(){
     if(player_score > computer_score){
         return "Congratulations! You win!";
-    }else if (player_score == computer_score){
+    }else if(player_choice == "quit"){
+        return "Game over";
+    }
+   
+    else if (player_score == computer_score){
         return "It's A Draw!";
     }else{
         return "You lose! Try Again"
@@ -64,6 +71,11 @@ function gameOver(){
 
 while(true){
     let player_choice = getPlayerChoice();
+
+    if (!choices.includes(player_choice)) {
+        console.log("Invalid choice. Please enter rock, paper, scissors, or quit.");
+        continue;
+    }
     if(player_choice == "quit"){
     break;
     }
