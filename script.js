@@ -54,7 +54,7 @@ function playRound(){
 //console.log(getPlayerChoice(), getComputerChoice());// get choices
 
 //for game over
-function gameOver(){
+/*function gameOver(){
     if(player_score > computer_score){
         return "Congratulations! You win!";
     }else if(player_choice == "quit"){
@@ -85,4 +85,19 @@ while(true){
     console.log(result);
     console.log(`player score:${player_score} computer score: ${computer_score}`);
 }
-console.log(gameOver());
+console.log(gameOver());*/
+
+// event listeners
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button)=> {
+    button.addEventListener("click",(event)=>{
+       const choice = event.target.getAttribute("data-choice");
+    
+       if (choice == "quit"){
+        console.log("Game Over");
+       }else
+       console.log(`You have selected : ${choice}`);
+})
+    
+})
