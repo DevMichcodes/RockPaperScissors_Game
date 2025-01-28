@@ -154,6 +154,8 @@ const buttons = document.querySelectorAll("button");
 
 let player_score = 0;
 let computer_score = 0;
+const player_choice ="";
+const computer_choice ="";
 
 function getComputerChoice(){
     let computer_choice = ["Rock","Paper","Scissors"];
@@ -169,6 +171,26 @@ function getPlayerChoice(event){
     //display both items
     document.getElementById("playerChoice").textContent = `${player_choice}`;
     document.getElementById("computerChoice").textContent = `${computer_choice}`;
+
+if(player_choice === computer_choice){
+    document.getElementById("results").textContent='it\'s a Tie';
+}
+else if(
+    (player_choice === "Rock" && computer_choice === "Scissors")||
+    (player_choice === "Scissors"&& computer_choice === "Paper")||
+    (player_choice === "Paper" && computer_choice === "Rock")
+)
+{
+    player_score++;
+    document.getElementById("player-scores").textContent = `${player_score}`;
+    document.getElementById("results").textContent = `${player_choice} beats ${computer_choice}. You win!!`;
+
+}else{
+    computer_score++;
+    document.getElementById("computer-scores").textContent = `${computer_score}`;
+    document.getElementById("results").textContent = `${computer_choice} beats ${player_choice}. You lose!!`;
+
+}
 }
 
 // Attaching event listeners
@@ -178,5 +200,6 @@ const buttons = document.querySelectorAll('[data-choice]');
 buttons.forEach(button => {
     button.addEventListener("click", getPlayerChoice);
 });
+
 
 
