@@ -1,6 +1,6 @@
 
 
-let computer_score =0;
+/*let computer_score =0;
 let player_score =0;
 
 // getting computer choice for the game
@@ -14,12 +14,14 @@ function getComputerChoice(){
 let player_choice ="";
 const choices =["rock","paper","scissors","quit"];
 
-function getPlayerChoice(){
-    player_choice = prompt("Enter your choice:");
+function getPlayerChoice(player_choice){
+    const playerChose = document.getElementById("playerChoice");
+    playerChose.textContent = player_choice;
+    /*player_choice = prompt("Enter your choice:");
     if (player_choice == null){
         return "quit";
-    }
-    return player_choice.toLowerCase();
+    }*/
+  /*  return player_choice.toLowerCase();
 }
 //console.log(getComputerChoice(),getPlayerChoice());
 
@@ -89,15 +91,92 @@ console.log(gameOver());*/
 
 // event listeners
 
-const buttons = document.querySelectorAll("button");
+/*const buttons = document.querySelectorAll("button");
 buttons.forEach((button)=> {
     button.addEventListener("click",(event)=>{
        const choice = event.target.getAttribute("data-choice");
+//selects where the result will be displayed
+       const gameResult = document.getElementById("results");
+       if (choice === "quit") {
+        document.getElementById("results").textContent = "Game Over!";
+        return;
+    }else{
+        document.getElementById("results").textContent = `You selected : ${choice}`;
     
-       if (choice == "quit"){
-        console.log("Game Over");
-       }else
-       console.log(`You have selected : ${choice}`);
+ }
+console.log("Before updating the DOM");
+const computer_choice = getComputerChoice();
+const result = playRound(player_choice, computer_choice);
+
+
+
+
+    
+      
 })
     
-})
+})*/
+// updating the UI
+/*
+function showResults(player_choice,computer_choice,result){
+            //update choices
+           document.getElementById("playerChoice").textContent = player_choice;
+           document.getElementById("computerChoice").textContent = computer_choice; 
+
+            // Update Scores
+            document.getElementById("player-score").textContent = player_score;
+            document.getElementById("computer-score").textContent = computer_score;
+
+            // Display Result
+            document.getElementById("results").textContent = result;
+}
+
+//add event listeners
+
+const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) =>{
+        button.addEventListener("click",(event)=>{
+            const choice = event.target.getAttribute("data-choice");
+            if(player_choice === "quit"){
+                document.getElementById("results").textContent = "Game over!";
+                return;
+            }
+            const computer_choice = getComputerChoice();
+            const result = playRound(player_choice,computer_choice);
+            showResults(player_choice,computer_choice,result);
+
+        });
+
+    });
+    */
+    
+// initialising player scores
+
+let player_score = 0;
+let computer_score = 0;
+
+function getComputerChoice(){
+    let computer_choice = ["Rock","Paper","Scissors"];
+     return computer_choice[Math.floor(Math.random()*3)];
+}
+
+function getPlayerChoice(event){
+    
+    const player_choice = event.target.dataset.choice;
+    
+    const computer_choice =getComputerChoice();
+
+    //display both items
+    document.getElementById("playerChoice").textContent = `${player_choice}`;
+    document.getElementById("computerChoice").textContent = `${computer_choice}`;
+}
+
+// Attaching event listeners
+
+const buttons = document.querySelectorAll('[data-choice]');
+
+buttons.forEach(button => {
+    button.addEventListener("click", getPlayerChoice);
+});
+
+
