@@ -48,17 +48,38 @@ else if(
 
 function quitGame(){
     gameOver = true;
-    
+
     let showResult = 'GAME OVER!';
     if(player_score > computer_score){
         showResult += 'You win!';
      }else if(computer_score > player_score){
         showResult += 'You lose!';
      }else{
-        showResult += "It\s a tie!"
+        showResult += "It\'s a tie!"
      }
-     const finalResult = document.getElementById('finalResult');
+     const finalResult = document.getElementById("finalResult");
      finalResult.textContent = showResult;
+}
+
+function newGame(){
+player_score = 0;
+computer_score = 0;
+gameOver = false;
+
+// reset UI
+document.getElementById("playerChoice").textContent = "";
+document.getElementById("computerChoice").textContent = "";
+document.getElementById("player-scores").textContent = "0";
+document.getElementById("computer-scores").textContent = "0";
+document.getElementById("results").textContent = "Make your move!";
+document.getElementById("finalResult").textContent = "";
+
+// Enable buttons
+document.querySelectorAll("[data-choice]").forEach(button => {
+    button.disabled = false;
+});
+
+document.getElementById("quitButton").disabled = false;
 }
 
 // Attaching event listeners
@@ -69,5 +90,5 @@ buttons.forEach(button => {
     button.addEventListener("click", getPlayerChoice);
 });
 document.getElementById("quitButton").addEventListener("click", quitGame);
-
+document.getElementById("newGameButton").addEventListener("click", newGame);
 
