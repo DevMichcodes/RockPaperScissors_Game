@@ -191,6 +191,23 @@ else if(
     document.getElementById("results").textContent = `${computer_choice} beats ${player_choice}. You lose!!`;
 
 }
+
+
+}
+
+
+
+function quitGame(){
+    let showResult = 'GAME OVER!';
+    if(player_score > computer_score){
+        showResult += 'You win!';
+     }else if(computer_score > player_score){
+        showResult += 'You lose!';
+     }else{
+        showResult += "It\s a tie!"
+     }
+     const finalResult = document.getElementById('finalResult');
+     finalResult.textContent = showResult;
 }
 
 // Attaching event listeners
@@ -200,6 +217,6 @@ const buttons = document.querySelectorAll('[data-choice]');
 buttons.forEach(button => {
     button.addEventListener("click", getPlayerChoice);
 });
-
+document.getElementById("quitButton").addEventListener("click", quitGame);
 
 
