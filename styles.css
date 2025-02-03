@@ -36,11 +36,14 @@ h1{
     background-color: green;
 }
 button[data-choice]{
-    padding: 40px;
-    text-align: start;
+    padding: 20px;
+    text-align: center;
     border-radius: 60%;
     background-color: yellowgreen;
     border: 1px solid black;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
 }
 #scoresSection,#showResults{
     align-self: center;
