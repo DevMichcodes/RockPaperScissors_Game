@@ -1,0 +1,47 @@
+html{
+    background-color: mediumslateblue;
+}
+h1{
+    text-align: center;
+}
+#gameSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+#playGame, #scoresSection, #showResults {
+    flex: 1; /* Each section gets equal width */
+    border: 10px ridge purple;
+    padding: 10px;
+    text-align: center;
+    background-color: blueviolet;
+}
+#picks{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+}
+#quitButton,#newGameButton{
+    padding: 30px;
+    margin: 30px;
+    border-radius: 40%;
+    border: 1px solid black;  
+}
+#quitButton{
+    background-color: crimson;
+}
+#newGameButton{
+    background-color: green;
+}
+button[data-choice]{
+    padding: 40px;
+    text-align: start;
+    border-radius: 60%;
+    background-color: yellowgreen;
+    border: 1px solid black;
+}
+#scoresSection,#showResults{
+    align-self: center;
+}
