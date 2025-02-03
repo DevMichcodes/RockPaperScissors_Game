@@ -71,7 +71,7 @@ document.getElementById("playerChoice").textContent = "";
 document.getElementById("computerChoice").textContent = "";
 document.getElementById("player-scores").textContent = "0";
 document.getElementById("computer-scores").textContent = "0";
-document.getElementById("results").textContent = "Make your move!";
+document.getElementById("results").textContent = alert("Make your move!");
 document.getElementById("finalResult").textContent = "";
 
 // Enable buttons
